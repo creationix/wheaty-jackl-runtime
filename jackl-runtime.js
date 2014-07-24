@@ -1,7 +1,7 @@
 "use strict";
 var bodec = require('bodec');
 var inspect = require('util').inspect;
-var ansiToHtml = require('./ansi-to-html');
+var ansiToHtml = require('./ansi-to-html/ansi-to-html');
 
 var identRegex =  /^[^{}[\]();:,.'"`\s]+/;
 

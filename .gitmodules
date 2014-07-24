@@ -1,0 +1,5 @@
+[submodule "ansi-to-html"]
+	url = git@github.com:creationix/ansi-to-html.git
+	ref = refs/heads/master
+	prefix = hy0lr7yi-ju7imu
+	path = ansi-to-html
