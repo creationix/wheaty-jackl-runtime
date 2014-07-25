@@ -1,0 +1,49 @@
+#!jackl
+
+((import "./layout.jkl") title: "Index Listing"
+  (div id: "main" class: "index"
+    (for article: (slice articles 0 15)
+      (div class: "article"
+        (div class: "author"
+          (img src: (gravitar article.author.email 30))
+          "By " article.author.name
+          (div class: "date" title: article.date
+            (formatDate article.date "%Y.%m.%d")
+          )
+        )
+        (h3
+          (a href: (+ "/" article.name) article.title)
+        )
+        (raw (intro article.markdown))
+      )
+    )
+  )
+  (div id: "sidebar"
+    (div class: "aside"
+      (raw (markdownEncode description))
+    )
+    (div class: "bubble"
+      (h4 "Articles")
+      (ul
+        (for article: (slice articles 0 20)
+          (li
+            (a href: (+ "/" article.name) article.title)
+            " by " article.author.name
+            (if article.node
+              (span class: "version" article.node)
+            )
+          )
+        )
+      )
+    )
+    (div class: "bubble"
+      (h4 "Related Reading")
+      (a target: "books" href: "http://affiliate.manning.com/idevaffiliate.php?id=1209_277"
+        (img
+          style: "height:188px;width:150px;border:0;"
+          src: "http://www.manning.com/cantelon/cantelon_cover150.jpg"
+        )
+      )
+    )
+  )
+)
